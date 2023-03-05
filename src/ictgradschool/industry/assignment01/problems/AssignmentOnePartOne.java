@@ -78,7 +78,7 @@ public class AssignmentOnePartOne {
             return "";
         }else if((index+3) > text.length()){
             //If the string does not have three more letters after the index, return all letters in CAPITAL after the index.
-            return text.substring(index,text.length()).toUpperCase();
+            return text.substring(index).toUpperCase();
         }else{
             //normal case
             return text.substring(index,index+3).toUpperCase();
@@ -95,12 +95,8 @@ public class AssignmentOnePartOne {
     public boolean EnoughToBuyDrinks(int dollarCoins, int fiftyCentCoins, int tenCentCoins) {
         double beerPrice = 9.8;
         // Answer here
-        double totalAmountOnHand = dollarCoins*1+fiftyCentCoins*0.5+tenCentCoins*0.1;
-        if(totalAmountOnHand>=beerPrice) {
-            return true;
-        }else {
-            return false;
-        }
+        double totalAmountOnHand = dollarCoins+fiftyCentCoins*0.5+tenCentCoins*0.1;
+        return totalAmountOnHand >= beerPrice;
         //
     }
 
@@ -113,10 +109,8 @@ public class AssignmentOnePartOne {
         // Answer here
         if(a && b) {
             return true;
-        }else if(!a) {
-            return true;
-        }else {
-            return false;
+        }else{
+            return !a;
         }
         //
     }
@@ -129,11 +123,7 @@ public class AssignmentOnePartOne {
     public boolean checkErrorInRange(double a, double b, double delta) {
         //Answer here
         //to-do: within is inclusive or exclusive?
-        if(a<=delta && b<=delta) {
-            return true;
-        }else {
-            return false;
-        }
+        return a <= delta && b <= delta;
         //
     }
 
