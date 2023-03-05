@@ -128,6 +128,7 @@ public class AssignmentOnePartOne {
      */
     public boolean checkErrorInRange(double a, double b, double delta) {
         //Answer here
+        //to-do: within is inclusive or exclusive?
         if(a<=delta && b<=delta) {
             return true;
         }else {
