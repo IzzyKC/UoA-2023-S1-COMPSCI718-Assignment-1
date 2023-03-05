@@ -148,9 +148,12 @@ public class AssignmentOnePartOne {
      */
     public String isSubstring(String firstStr, String secondStr) {
         //Answer here
-        if(firstStr.contains(secondStr) || secondStr.contains(firstStr)){
-            // to-do
-            return "";
+        if(firstStr.equals(secondStr)) {
+            return "Same string";
+        }else if(secondStr.contains(firstStr)) {
+            return "First string is a substring of second string";
+        }else if(firstStr.contains(secondStr)){
+            return "Second string is a substring of first string";
         }else{
             return "No match";
         }
