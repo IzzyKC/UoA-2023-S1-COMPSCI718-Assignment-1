@@ -20,7 +20,7 @@ public class AssignmentOnePartOne {
     public int divideTwoInts(int dividend, int divisor) {
         int quotient = 0;
         // Answer here
-
+        quotient = dividend/divisor;
         //
         return quotient;
     }
@@ -32,7 +32,7 @@ public class AssignmentOnePartOne {
     public int remainderOfTwoInts(int dividend, int divisor) {
         int remainder = 0;
         // Answer here
-
+        remainder = dividend%divisor;
         //
         return remainder;
     }
@@ -45,7 +45,7 @@ public class AssignmentOnePartOne {
     public int sumOfTwoDoubles(double numberOne, double numberTwo) {
         int sum = 0;
         // Answer here
-
+        sum = (int)(numberOne+numberTwo);
         //
         return sum;
     }
@@ -57,7 +57,7 @@ public class AssignmentOnePartOne {
     public int convertKilometresToMiles(int km) {
         int m = 0;
         // Answer here
-
+        m = (int)Math.round(km * 0.621371);
         //
         return m;
     }
@@ -73,7 +73,16 @@ public class AssignmentOnePartOne {
      */
     public String getThreeLettersInCapital(String text, int index) {
         // Answer here
-        return null;
+        if(index > text.length()){
+            //If the index exceeds the length of the given text, return an empty string "".
+            return "";
+        }else if((index+3) > text.length()){
+            //If the string does not have three more letters after the index, return all letters in CAPITAL after the index.
+            return text.substring(index,text.length()).toUpperCase();
+        }else{
+            //normal case
+            return text.substring(index,index+3).toUpperCase();
+        }
         //
     }
 
@@ -86,7 +95,12 @@ public class AssignmentOnePartOne {
     public boolean EnoughToBuyDrinks(int dollarCoins, int fiftyCentCoins, int tenCentCoins) {
         double beerPrice = 9.8;
         // Answer here
-        return false;
+        double totalAmountOnHand = dollarCoins*1+fiftyCentCoins*0.5+tenCentCoins*0.1;
+        if(totalAmountOnHand>=beerPrice) {
+            return true;
+        }else {
+            return false;
+        }
         //
     }
 
@@ -97,7 +111,13 @@ public class AssignmentOnePartOne {
      */
     public boolean implies(boolean a, boolean b) {
         // Answer here
-        return false;
+        if(a && b) {
+            return true;
+        }else if(!a) {
+            return true;
+        }else {
+            return false;
+        }
         //
     }
 
@@ -108,7 +128,11 @@ public class AssignmentOnePartOne {
      */
     public boolean checkErrorInRange(double a, double b, double delta) {
         //Answer here
-        return false;
+        if(a<=delta && b<=delta) {
+            return true;
+        }else {
+            return false;
+        }
         //
     }
 
@@ -123,7 +147,12 @@ public class AssignmentOnePartOne {
      */
     public String isSubstring(String firstStr, String secondStr) {
         //Answer here
-        return null;
+        if(firstStr.contains(secondStr) || secondStr.contains(firstStr)){
+            // to-do
+            return "";
+        }else{
+            return "No match";
+        }
         //
     }
 
@@ -134,7 +163,7 @@ public class AssignmentOnePartOne {
      */
     public int medianOfThreeInts(int numOne, int numTwo, int numThree) {
         // Answer here
-        return 0;
+        return Math.max(Math.min(numOne,numTwo), Math.min(Math.max(numOne,numTwo),numThree));
         //
     }
 }
