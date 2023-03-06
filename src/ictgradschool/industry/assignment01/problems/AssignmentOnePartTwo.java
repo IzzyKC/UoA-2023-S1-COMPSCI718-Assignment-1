@@ -81,7 +81,26 @@ public class AssignmentOnePartTwo {
      */
     public String convertIntToColTitle(int column) {
         // Answer here
-        return null;
+        if(column <0){
+            return "Input is invalid";
+        }
+
+        String titleIndex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String colTitle = "";
+        while (column >=0)
+        {
+            if(column >25) {
+                //0--A
+                int index = column%26;
+                colTitle = titleIndex.charAt(index)+colTitle;
+                column = (column-(index+1))/26;//0--A, minus 1
+            }else{
+                colTitle = titleIndex.charAt(column)+colTitle;
+                break;
+            }
+        }
+
+        return colTitle;
         //
     }
 
