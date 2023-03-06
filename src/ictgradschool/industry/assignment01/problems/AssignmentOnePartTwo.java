@@ -19,7 +19,13 @@ public class AssignmentOnePartTwo {
      */
     public int countDigits(int number) {
         // Answer here
-        return 0;
+        number = Math.abs(number);
+        int count =0;
+        while(number != 0){
+            number= number/10;
+            count++;
+        }
+        return count;
         //
     }
 
@@ -34,7 +40,16 @@ public class AssignmentOnePartTwo {
      */
     public int checkSum(int number) {
         // Answer here
-        return 0;
+        if(number >0){
+            int sum = 0;
+            while(number !=0){
+                sum = sum+number%10;
+                number = number/10;
+            }
+            return sum;
+        }else{
+            return number;
+        }
         //
     }
 
@@ -45,7 +60,17 @@ public class AssignmentOnePartTwo {
      */
     public int reverseInt(int number) {
         // Answer here
-        return 0;
+        boolean isNegative = (number<0);
+        number = Math.abs(number);
+        int reverseInt =0;
+        while(number !=0){
+            reverseInt = reverseInt*10+number%10;
+            number = number/10;
+        }
+        if(isNegative){
+            reverseInt = -reverseInt;
+        }
+        return reverseInt;
         //
     }
 
