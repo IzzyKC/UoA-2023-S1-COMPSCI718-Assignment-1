@@ -22,7 +22,7 @@ public class AssignmentOnePartTwo {
         number = Math.abs(number);
         int count =0;
         while(number != 0){
-            number= number/10;
+            number= number / 10;
             count++;
         }
         return count;
@@ -43,8 +43,8 @@ public class AssignmentOnePartTwo {
         if(number >0){
             int sum = 0;
             while(number !=0){
-                sum = sum+number%10;
-                number = number/10;
+                sum = sum + number % 10;
+                number = number / 10;
             }
             return sum;
         }else{
@@ -64,8 +64,8 @@ public class AssignmentOnePartTwo {
         number = Math.abs(number);
         int reverseInt =0;
         while(number !=0){
-            reverseInt = reverseInt*10+number%10;
-            number = number/10;
+            reverseInt = reverseInt * 10 + number % 10;
+            number = number / 10;
         }
         if(isNegative){
             reverseInt = -reverseInt;
@@ -90,11 +90,11 @@ public class AssignmentOnePartTwo {
         while (column >=0){
             if(column >25){
                 //0--A
-                int index = column%26;
-                colTitle = titleIndex.charAt(index)+colTitle;
-                column = (column-(index+1))/26;//0--A, minus 1
+                int index = column % 26;
+                colTitle = titleIndex.charAt(index) + colTitle;
+                column = (column - (index+1)) / 26;//0--A, minus 1
             }else{
-                colTitle = titleIndex.charAt(column)+colTitle;
+                colTitle = titleIndex.charAt(column) + colTitle;
                 break;//or will become an infinite loop
             }
         }
@@ -112,9 +112,9 @@ public class AssignmentOnePartTwo {
         // Answer here
         if(str == null) return null;
         String reverseStr = "";
-        for(int i=(str.length()-1);i>=0;i--)
+        for(int i=(str.length()-1); i>=0; i--)
         {
-            reverseStr = reverseStr+str.charAt(i);
+            reverseStr = reverseStr + str.charAt(i);
         }
         return reverseStr;
         //
@@ -145,7 +145,18 @@ public class AssignmentOnePartTwo {
      */
     public String sortNumbersByAscending(int num1, int num2, int num3, int num4) {
         // Answer here
-        return null;
+        int first=0, second=0, third=0, fourth=0;
+        //find the lowest and highest numbers
+        first = Math.min(Math.min(num1,num2),Math.min(num3,num4));
+        fourth = Math.max(Math.max(num1,num2),Math.max(num3,num4));
+        //fine the two middle numbers
+        int tempSecond,tempThird;
+        tempSecond = Math.min(Math.max(num1,num2),Math.max(num3,num4));
+        tempThird = Math.max(Math.min(num1,num2),Math.min(num3,num4));
+        //find the second, and third numbers
+        second = Math.min(tempSecond,tempThird);
+        third = Math.max(tempSecond,tempThird);
+        return "The numbers in ascending order are: "+first+","+second+","+third+","+fourth;
         //
     }
 

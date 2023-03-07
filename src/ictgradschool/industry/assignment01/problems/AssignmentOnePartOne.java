@@ -20,7 +20,7 @@ public class AssignmentOnePartOne {
     public int divideTwoInts(int dividend, int divisor) {
         int quotient = 0;
         // Answer here
-        quotient = dividend/divisor;
+        quotient = dividend / divisor;
         //
         return quotient;
     }
@@ -32,7 +32,7 @@ public class AssignmentOnePartOne {
     public int remainderOfTwoInts(int dividend, int divisor) {
         int remainder = 0;
         // Answer here
-        remainder = dividend%divisor;
+        remainder = dividend % divisor;
         //
         return remainder;
     }
@@ -45,7 +45,7 @@ public class AssignmentOnePartOne {
     public int sumOfTwoDoubles(double numberOne, double numberTwo) {
         int sum = 0;
         // Answer here
-        sum = (int)(numberOne+numberTwo);
+        sum = (int)(numberOne + numberTwo);
         //
         return sum;
     }
@@ -95,7 +95,7 @@ public class AssignmentOnePartOne {
     public boolean EnoughToBuyDrinks(int dollarCoins, int fiftyCentCoins, int tenCentCoins) {
         double beerPrice = 9.8;
         // Answer here
-        double totalAmountOnHand = dollarCoins+fiftyCentCoins*0.5+tenCentCoins*0.1;
+        double totalAmountOnHand = dollarCoins + fiftyCentCoins * 0.5+ tenCentCoins * 0.1;
         return totalAmountOnHand >= beerPrice;
         //
     }
