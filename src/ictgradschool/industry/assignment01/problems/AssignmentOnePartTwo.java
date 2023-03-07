@@ -145,7 +145,7 @@ public class AssignmentOnePartTwo {
      */
     public String sortNumbersByAscending(int num1, int num2, int num3, int num4) {
         // Answer here
-        int first=0, second=0, third=0, fourth=0;
+        int first, second, third, fourth;
         //find the lowest and highest numbers
         first = Math.min(Math.min(num1,num2),Math.min(num3,num4));
         fourth = Math.max(Math.max(num1,num2),Math.max(num3,num4));
@@ -169,7 +169,29 @@ public class AssignmentOnePartTwo {
      */
     public String printPrimeNumbers(int num) {
         // Answer
-        return null;
+        //negative given numner, do nothing
+        boolean isIntNegative = (num < 0);
+        String primeNumberList = "";
+        if(!isIntNegative){
+            for(int i=2; i<=num; i++){
+                boolean isPrimeNumber = true;
+                //check if prime number
+                for(int j=2; j<i; j++){
+                    if(i % j == 0) {
+                        isPrimeNumber = false;
+                        break;
+                    }
+                }
+                if(isPrimeNumber)
+                    primeNumberList = primeNumberList + i+" ";
+            }
+        }
+        if(isIntNegative || primeNumberList.isBlank()){
+            return "No prime number found";
+        }else {
+            //truncate the last space
+            return "Prime Numbers between 2 and "+num+" are: "+primeNumberList.substring(0,primeNumberList.length()-1);
+        }
         //
     }
 
