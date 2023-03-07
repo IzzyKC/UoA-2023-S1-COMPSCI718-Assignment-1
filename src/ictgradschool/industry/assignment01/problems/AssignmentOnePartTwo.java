@@ -9,7 +9,7 @@ package ictgradschool.industry.assignment01.problems;
  * <p>
  * You may modify the code in between the comments: // Answer here // . Do not modify other parts of the code.
  * <p>
- * Write your name and UPI here: Wan-Ling Chang and 611429940.
+ * Write your name and UPI here: Wan-Ling Chang and wcha305.
  */
 public class AssignmentOnePartTwo {
 
@@ -177,6 +177,7 @@ public class AssignmentOnePartTwo {
                 boolean isPrimeNumber = true;
                 //check if prime number
                 for(int j=2; j<i; j++){
+                    //find at least one factor other than itself
                     if(i % j == 0) {
                         isPrimeNumber = false;
                         break;
@@ -190,7 +191,7 @@ public class AssignmentOnePartTwo {
             return "No prime number found";
         }else {
             //truncate the last space
-            return "Prime Numbers between 2 and "+num+" are: "+primeNumberList.substring(0,primeNumberList.length()-1);
+            return "Prime Numbers between 2 and "+num+" are: "+primeNumberList.trim();
         }
         //
     }
@@ -211,7 +212,16 @@ public class AssignmentOnePartTwo {
      */
     public int findLifePathNumber(int yearOfBirth, int monthOfBirth, int dateOfBirth) {
         // Answer
-        return 0;
+        //May we reuse previous method from the other questions in this assignment?
+        int sumDateOfBirth,sumLifePathNumber;
+        //Step 1 : sum up all digits of date of birth
+        sumDateOfBirth = checkSum(yearOfBirth) + checkSum(monthOfBirth) + checkSum(dateOfBirth);
+        //Step 2 : sum up all digits of the result from step 1 until it is between 1 and 9
+        sumLifePathNumber = checkSum(sumDateOfBirth);
+        while( sumLifePathNumber <1 || sumLifePathNumber >9){
+            sumLifePathNumber = checkSum(sumLifePathNumber);
+        }
+        return sumLifePathNumber;
         //
     }
 

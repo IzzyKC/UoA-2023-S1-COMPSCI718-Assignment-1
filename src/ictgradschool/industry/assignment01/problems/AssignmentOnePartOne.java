@@ -9,7 +9,7 @@ package ictgradschool.industry.assignment01.problems;
  * <p>
  * You may modify the code in between the comments: // Answer here // . Do not modify other parts of the code.
  * <p>
- * Write your name and UPI here: Wan-Ling Chang and 611429940.
+ * Write your name and UPI here: Wan-Ling Chang and wcha305.
  */
 public class AssignmentOnePartOne {
 
