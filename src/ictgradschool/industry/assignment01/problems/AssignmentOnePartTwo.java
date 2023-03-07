@@ -87,16 +87,15 @@ public class AssignmentOnePartTwo {
 
         String titleIndex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String colTitle = "";
-        while (column >=0)
-        {
-            if(column >25) {
+        while (column >=0){
+            if(column >25){
                 //0--A
                 int index = column%26;
                 colTitle = titleIndex.charAt(index)+colTitle;
                 column = (column-(index+1))/26;//0--A, minus 1
             }else{
                 colTitle = titleIndex.charAt(column)+colTitle;
-                break;
+                break;//or will become an infinite loop
             }
         }
 
@@ -111,7 +110,13 @@ public class AssignmentOnePartTwo {
      */
     public String reverseString(String str) {
         // Answer here
-        return null;
+        if(str == null) return null;
+        String reverseStr = "";
+        for(int i=(str.length()-1);i>=0;i--)
+        {
+            reverseStr = reverseStr+str.charAt(i);
+        }
+        return reverseStr;
         //
     }
 
