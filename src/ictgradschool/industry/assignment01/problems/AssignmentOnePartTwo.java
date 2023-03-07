@@ -127,7 +127,14 @@ public class AssignmentOnePartTwo {
      */
     public boolean isIntPalindrome(int number) {
         // Answer here
-        return false;
+        //ignore negative sign
+        int inputNum = Math.abs(number);
+        int reverseInt =0;
+        while(inputNum !=0){
+            reverseInt = reverseInt*10+inputNum%10;
+            inputNum = inputNum/10;
+        }
+        return (Math.abs(number)==reverseInt);
         //
     }
 
