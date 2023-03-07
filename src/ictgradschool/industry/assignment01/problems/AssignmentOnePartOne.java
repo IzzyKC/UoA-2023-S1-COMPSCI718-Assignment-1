@@ -81,7 +81,7 @@ public class AssignmentOnePartOne {
             return text.substring(index).toUpperCase();
         }else{
             //normal case
-            return text.substring(index,index+3).toUpperCase();
+            return text.substring(index, index+3).toUpperCase();
         }
         //
     }

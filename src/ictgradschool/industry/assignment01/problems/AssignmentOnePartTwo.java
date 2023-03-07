@@ -20,7 +20,7 @@ public class AssignmentOnePartTwo {
     public int countDigits(int number) {
         // Answer here
         number = Math.abs(number);
-        int count =0;
+        int count = 0;
         while(number != 0){
             number= number / 10;
             count++;
@@ -40,7 +40,7 @@ public class AssignmentOnePartTwo {
      */
     public int checkSum(int number) {
         // Answer here
-        if(number >0){
+        if(number > 0){
             int sum = 0;
             while(number !=0){
                 sum = sum + number % 10;
@@ -60,7 +60,7 @@ public class AssignmentOnePartTwo {
      */
     public int reverseInt(int number) {
         // Answer here
-        boolean isNegative = (number<0);
+        boolean isNegative = (number < 0);
         number = Math.abs(number);
         int reverseInt =0;
         while(number !=0){
@@ -81,14 +81,14 @@ public class AssignmentOnePartTwo {
      */
     public String convertIntToColTitle(int column) {
         // Answer here
-        if(column <0){
+        if(column < 0){
             return "Input is invalid";
         }
 
         String titleIndex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String colTitle = "";
-        while (column >=0){
-            if(column >25){
+        while (column >= 0){
+            if(column > 25){
                 //0--A
                 int index = column % 26;
                 colTitle = titleIndex.charAt(index) + colTitle;
@@ -129,10 +129,10 @@ public class AssignmentOnePartTwo {
         // Answer here
         //ignore negative sign
         int inputNum = Math.abs(number);
-        int reverseInt =0;
-        while(inputNum !=0){
-            reverseInt = reverseInt*10+inputNum%10;
-            inputNum = inputNum/10;
+        int reverseInt = 0;
+        while(inputNum != 0){
+            reverseInt = reverseInt * 10 + inputNum % 10;
+            inputNum = inputNum / 10;
         }
         return (Math.abs(number)==reverseInt);
         //
