@@ -122,8 +122,7 @@ public class AssignmentOnePartOne {
      */
     public boolean checkErrorInRange(double a, double b, double delta) {
         //Answer here
-        //to-do: within is inclusive or exclusive?
-        return a < delta && b < delta;
+        return (Math.abs(a-b) < delta);
         //
     }
 
@@ -138,6 +137,8 @@ public class AssignmentOnePartOne {
      */
     public String isSubstring(String firstStr, String secondStr) {
         //Answer here
+        firstStr = firstStr.replace(" ","");//remove white space
+        secondStr = secondStr.replace(" ","");//remove white space
         if(firstStr.equals(secondStr)) {
             return "Same string";
         }else if(secondStr.contains(firstStr)) {

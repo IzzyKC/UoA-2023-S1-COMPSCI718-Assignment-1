@@ -20,7 +20,7 @@ public class AssignmentOnePartTwo {
     public int countDigits(int number) {
         // Answer here
         number = Math.abs(number);
-        int count = 0;
+        int count = (number ==0) ? 1 : 0;//0 = 1 digit
         while(number != 0){
             number= number / 10;
             count++;
@@ -156,7 +156,7 @@ public class AssignmentOnePartTwo {
         //find the second, and third numbers
         second = Math.min(tempSecond,tempThird);
         third = Math.max(tempSecond,tempThird);
-        return "The numbers in ascending order are: "+first+","+second+","+third+","+fourth;
+        return first+","+second+","+third+","+fourth;
         //
     }
 
@@ -191,7 +191,7 @@ public class AssignmentOnePartTwo {
             return "No prime number found";
         }else {
             //truncate the last space
-            return "Prime Numbers between 2 and "+num+" are: "+primeNumberList.trim();
+            return primeNumberList.trim();
         }
         //
     }
@@ -241,7 +241,16 @@ public class AssignmentOnePartTwo {
      */
     public String simpleMultiplicationTable(int num) {
         // Answer here
-        return null;
+        String multiplicationTableStr = "";
+        for(int row=1; row <= num; row++){
+            for(int col=1; col <= num; col++){
+                multiplicationTableStr += row * col +" ";
+            }
+            multiplicationTableStr = multiplicationTableStr.trim();
+            if(row != num)
+                multiplicationTableStr  += "\n";
+        }
+        return multiplicationTableStr;
         //
     }
 }
