@@ -1,5 +1,6 @@
 package ictgradschool.industry.assignment01.problems;
 
+
 /**
  * Please run TestAssignmentOnePartThree to check your answers.
  * There are 10 exercises in this class. You can do them in any order you like.
@@ -33,7 +34,21 @@ public class AssignmentOnePartThree {
      */
     public int zip(int a, int b) {
         //Answer here
-        return 0;
+        boolean isZeroInput = (a == 0 || b == 0);
+        //The method returns 0 if one of the given integer is also 0.
+        String zipResultStr = isZeroInput ? "0" : "";
+        if(!isZeroInput) {
+            String aStr = String.valueOf(a);
+            String bStr = String.valueOf(b);
+            int loopIndex = Math.max(aStr.length(),bStr.length());
+            for (int i = 0; i < loopIndex; i++) {
+                if (i < aStr.length())
+                    zipResultStr += aStr.charAt(i);
+                if (i < bStr.length())
+                    zipResultStr += bStr.charAt(i);
+            }
+        }
+        return Integer.parseInt(zipResultStr);
         //
     }
 
@@ -43,7 +58,12 @@ public class AssignmentOnePartThree {
      */
     public int sumArray(int[] values) {
         //Answer here
-        return 0;
+        int sum = 0;
+        for(int i = 0; i < values.length; i++)
+        {
+            sum += values[i];
+        }
+        return sum;
         //
     }
 
@@ -53,7 +73,12 @@ public class AssignmentOnePartThree {
      */
     public int getBiggestValue(int[] values) {
         // Answer here
-        return 0;
+        int maxValue = 0;
+        for(int i = 0; i < values.length; i++){
+            if(values[i] > maxValue)
+                maxValue = values[i];
+        }
+        return maxValue;
         //
     }
 
@@ -63,7 +88,12 @@ public class AssignmentOnePartThree {
      */
     public int countOnes(int[] values) {
         // Answer here
-        return 0;
+        int countOnes = 0;
+        for(int i = 0; i < values.length; i++){
+            if(values[i] == 1)
+                countOnes++;
+        }
+        return countOnes;
         //
     }
 
@@ -76,7 +106,12 @@ public class AssignmentOnePartThree {
      */
     public int lastIndexOf(int[] values, int value) {
         //Answer here
-        return 0;
+        int lastIndex = -1;
+        for(int i = 0; i < values.length; i++){
+            if(values[i] == value)
+                lastIndex = i;
+        }
+        return lastIndex;
         //
     }
 
@@ -93,10 +128,29 @@ public class AssignmentOnePartThree {
      */
     public int findMostFrequentInteger(int[] values) {
         //Answer here
-        return 0;
+        int mostFrequentInteger=0, maxFrequent = 0;
+        for(int i = 0; i < values.length; i++){
+            //skip repeat Integer
+            if(mostFrequentInteger == values[i])
+                continue;
+
+            int countFrequent =0;
+            for(int j = 0; j < values.length; j++){
+                if(values[i] == values[j])
+                    countFrequent++;
+            }
+
+            //return the smallest number from the most frequently occurring numbers
+            if((countFrequent == maxFrequent && mostFrequentInteger > values[i]) ||
+                    (countFrequent > maxFrequent)) {
+                mostFrequentInteger = values[i];
+                maxFrequent = countFrequent;
+            }
+        }
+
+        return mostFrequentInteger;
         //
     }
-
 
     /**
      * Q7. Complete the method getMedianValue that returns the median integer value from a given int array.
@@ -109,7 +163,28 @@ public class AssignmentOnePartThree {
      */
     public int getMedianValue(int[] values) {
         //Answer here
-        return 0;
+        boolean isEvenArrLength = (values.length % 2 == 0) ? true : false;
+        int median = 0;
+        // sort int[] values by ascending order
+        for(int i = 0; i < values.length; i++){
+            //swap value if value[i] greater then the next one
+            for(int j = (i + 1); j < values.length; j++){
+                int temp;
+                if(values[i] > values[j]){
+                    temp = values[i];
+                    values[i] = values[j];
+                    values[j] = temp;
+                }
+            }
+        }
+        if(isEvenArrLength){
+            // median is the average of the middle two values
+            median = (values[values.length / 2] + values[(values.length / 2) -1]) / 2;
+        }else{
+            // median is the middle value
+            median = values[(int)(values.length / 2)];
+        }
+        return median;
         //
     }
 
@@ -123,7 +198,19 @@ public class AssignmentOnePartThree {
      */
     public int[] findBestMatch(int[] array1, int[] array2) {
         //Answer here
-        return null;
+        int smallestSum = (array1.length >0 && array2.length >0) ? (array1[0]+array2[0]) : 0;
+        int[] smallestPair = new int[2];
+        for(int i = 0; i < array1.length; i++){
+            for(int j = 0; j < array2.length; j++){
+                int pairSum = array1[i] + array2[j];
+                if(pairSum < smallestSum){
+                    smallestSum = pairSum;
+                    smallestPair[0] = array1[i];
+                    smallestPair[1] = array2[j];
+                }
+            }
+        }
+        return smallestPair;
         //
     }
 
@@ -136,7 +223,17 @@ public class AssignmentOnePartThree {
      */
     public int range(int[] values) {
         //Answer here
-        return 0;
+        int range = (values.length == 1) ? values[0] : 0;
+        if(values.length > 1){
+            int min = values[0];
+            int max= values[0];
+            for(int i = 0; i < values.length; i++){
+                min = Math.min(min,values[i]);
+                max = Math.max(max,values[i]);
+            }
+            range = max - min;
+        }
+        return range;
         //
     }
 
@@ -152,7 +249,24 @@ public class AssignmentOnePartThree {
      */
     public int[] findUniqueNumbers(int[] values) {
         //Answer here
-        return null;
+        int uniqueNumIndex =0;
+        String uniqueNumStr = "";
+        for(int i = 0; i < values.length; i++){
+            int count = 0;
+            for(int j = 0; j< values.length; j++){
+                if(values[i] == values[j])
+                    count++;
+            }
+            if(count == 1){
+                uniqueNumStr += values[i]+",";
+                uniqueNumIndex++;
+            }
+        }
+        int[] uniqueNumbers = new int[uniqueNumIndex];
+        for(int index = 0; index < uniqueNumIndex; index++){
+            uniqueNumbers[index] = Integer.parseInt(uniqueNumStr.substring(index*2, index*2+1));
+        }
+        return uniqueNumbers;
         //
     }
 
