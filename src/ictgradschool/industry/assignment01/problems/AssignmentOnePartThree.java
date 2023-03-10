@@ -164,7 +164,7 @@ public class AssignmentOnePartThree {
     public int getMedianValue(int[] values) {
         //Answer here
         boolean isEvenArrLength = (values.length % 2 == 0) ? true : false;
-        int median = 0;
+        int median;
         // sort int[] values by ascending order
         for(int i = 0; i < values.length; i++){
             //swap value if value[i] greater then the next one
@@ -182,7 +182,7 @@ public class AssignmentOnePartThree {
             median = (values[values.length / 2] + values[(values.length / 2) -1]) / 2;
         }else{
             // median is the middle value
-            median = values[(int)(values.length / 2)];
+            median = values[(values.length / 2)];
         }
         return median;
         //
