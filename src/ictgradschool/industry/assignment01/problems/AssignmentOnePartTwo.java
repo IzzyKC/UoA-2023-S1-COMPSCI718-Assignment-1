@@ -20,9 +20,9 @@ public class AssignmentOnePartTwo {
     public int countDigits(int number) {
         // Answer here
         number = Math.abs(number);
-        int count = (number ==0) ? 1 : 0;//0 = 1 digit
-        while(number != 0){
-            number= number / 10;
+        int count = (number == 0) ? 1 : 0;//0 = 1 digit
+        while (number != 0) {
+            number = number / 10;
             count++;
         }
         return count;
@@ -40,14 +40,14 @@ public class AssignmentOnePartTwo {
      */
     public int checkSum(int number) {
         // Answer here
-        if(number > 0){
+        if (number > 0) {
             int sum = 0;
-            while(number !=0){
+            while (number != 0) {
                 sum = sum + number % 10;
                 number = number / 10;
             }
             return sum;
-        }else{
+        } else {
             return number;
         }
         //
@@ -62,12 +62,12 @@ public class AssignmentOnePartTwo {
         // Answer here
         boolean isNegative = (number < 0);
         number = Math.abs(number);
-        int reverseInt =0;
-        while(number !=0){
+        int reverseInt = 0;
+        while (number != 0) {
             reverseInt = reverseInt * 10 + number % 10;
             number = number / 10;
         }
-        if(isNegative){
+        if (isNegative) {
             reverseInt = -reverseInt;
         }
         return reverseInt;
@@ -81,19 +81,19 @@ public class AssignmentOnePartTwo {
      */
     public String convertIntToColTitle(int column) {
         // Answer here
-        if(column < 0){
+        if (column < 0) {
             return "Input is invalid";
         }
 
         String titleIndex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String colTitle = "";
-        while (column >= 0){
-            if(column > 25){
+        while (column >= 0) {
+            if (column > 25) {
                 //0--A
                 int index = column % 26;
                 colTitle = titleIndex.charAt(index) + colTitle;
-                column = (column - (index+1)) / 26;//0--A, minus 1
-            }else{
+                column = (column - (index + 1)) / 26;//0--A, minus 1
+            } else {
                 colTitle = titleIndex.charAt(column) + colTitle;
                 break;//or will become an infinite loop
             }
@@ -110,10 +110,9 @@ public class AssignmentOnePartTwo {
      */
     public String reverseString(String str) {
         // Answer here
-        if(str == null) return null;
+        if (str == null) return null;
         String reverseStr = "";
-        for(int i=(str.length()-1); i>=0; i--)
-        {
+        for (int i = (str.length() - 1); i >= 0; i--) {
             reverseStr = reverseStr + str.charAt(i);
         }
         return reverseStr;
@@ -130,11 +129,11 @@ public class AssignmentOnePartTwo {
         //ignore negative sign
         int inputNum = Math.abs(number);
         int reverseInt = 0;
-        while(inputNum != 0){
+        while (inputNum != 0) {
             reverseInt = reverseInt * 10 + inputNum % 10;
             inputNum = inputNum / 10;
         }
-        return (Math.abs(number)==reverseInt);
+        return (Math.abs(number) == reverseInt);
         //
     }
 
@@ -147,16 +146,16 @@ public class AssignmentOnePartTwo {
         // Answer here
         int first, second, third, fourth;
         //find the lowest and highest numbers
-        first = Math.min(Math.min(num1,num2),Math.min(num3,num4));
-        fourth = Math.max(Math.max(num1,num2),Math.max(num3,num4));
+        first = Math.min(Math.min(num1, num2), Math.min(num3, num4));
+        fourth = Math.max(Math.max(num1, num2), Math.max(num3, num4));
         //fine the two middle numbers
-        int tempSecond,tempThird;
-        tempSecond = Math.min(Math.max(num1,num2),Math.max(num3,num4));
-        tempThird = Math.max(Math.min(num1,num2),Math.min(num3,num4));
+        int tempSecond, tempThird;
+        tempSecond = Math.min(Math.max(num1, num2), Math.max(num3, num4));
+        tempThird = Math.max(Math.min(num1, num2), Math.min(num3, num4));
         //find the second, and third numbers
-        second = Math.min(tempSecond,tempThird);
-        third = Math.max(tempSecond,tempThird);
-        return first+","+second+","+third+","+fourth;
+        second = Math.min(tempSecond, tempThird);
+        third = Math.max(tempSecond, tempThird);
+        return first + "," + second + "," + third + "," + fourth;
         //
     }
 
@@ -172,24 +171,24 @@ public class AssignmentOnePartTwo {
         //negative given numner, do nothing
         boolean isIntNegative = (num < 0);
         String primeNumberList = "";
-        if(!isIntNegative){
-            for(int i=2; i<=num; i++){
+        if (!isIntNegative) {
+            for (int i = 2; i <= num; i++) {
                 boolean isPrimeNumber = true;
                 //check if prime number
-                for(int j=2; j<i; j++){
+                for (int j = 2; j < i; j++) {
                     //find at least one factor other than itself
-                    if(i % j == 0) {
+                    if (i % j == 0) {
                         isPrimeNumber = false;
                         break;
                     }
                 }
-                if(isPrimeNumber)
-                    primeNumberList = primeNumberList + i+" ";
+                if (isPrimeNumber)
+                    primeNumberList = primeNumberList + i + " ";
             }
         }
-        if(isIntNegative || primeNumberList.isBlank()){
+        if (isIntNegative || primeNumberList.isBlank()) {
             return "No prime number found";
-        }else {
+        } else {
             //truncate the last space
             return primeNumberList.trim();
         }
@@ -213,12 +212,12 @@ public class AssignmentOnePartTwo {
     public int findLifePathNumber(int yearOfBirth, int monthOfBirth, int dateOfBirth) {
         // Answer
         //May we reuse previous method from the other questions in this assignment?
-        int sumDateOfBirth,sumLifePathNumber;
+        int sumDateOfBirth, sumLifePathNumber;
         //Step 1 : sum up all digits of date of birth
         sumDateOfBirth = checkSum(yearOfBirth) + checkSum(monthOfBirth) + checkSum(dateOfBirth);
         //Step 2 : sum up all digits of the result from step 1 until it is between 1 and 9
         sumLifePathNumber = checkSum(sumDateOfBirth);
-        while( sumLifePathNumber <1 || sumLifePathNumber >9){
+        while (sumLifePathNumber < 1 || sumLifePathNumber > 9) {
             sumLifePathNumber = checkSum(sumLifePathNumber);
         }
         return sumLifePathNumber;
@@ -242,13 +241,13 @@ public class AssignmentOnePartTwo {
     public String simpleMultiplicationTable(int num) {
         // Answer here
         String multiplicationTableStr = "";
-        for(int row=1; row <= num; row++){
-            for(int col=1; col <= num; col++){
-                multiplicationTableStr += row * col +" ";
+        for (int row = 1; row <= num; row++) {
+            for (int col = 1; col <= num; col++) {
+                multiplicationTableStr += row * col + " ";
             }
             multiplicationTableStr = multiplicationTableStr.trim();
-            if(row != num)
-                multiplicationTableStr  += "\n";
+            if (row != num)
+                multiplicationTableStr += "\n";
         }
         return multiplicationTableStr;
         //
