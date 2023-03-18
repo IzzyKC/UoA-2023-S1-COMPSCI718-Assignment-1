@@ -148,13 +148,16 @@ public class AssignmentOnePartTwo {
         //find the lowest and highest numbers
         first = Math.min(Math.min(num1, num2), Math.min(num3, num4));
         fourth = Math.max(Math.max(num1, num2), Math.max(num3, num4));
+
         //fine the two middle numbers
         int tempSecond, tempThird;
         tempSecond = Math.min(Math.max(num1, num2), Math.max(num3, num4));
         tempThird = Math.max(Math.min(num1, num2), Math.min(num3, num4));
+
         //find the second, and third numbers
         second = Math.min(tempSecond, tempThird);
         third = Math.max(tempSecond, tempThird);
+
         return first + "," + second + "," + third + "," + fourth;
         //
     }

@@ -139,6 +139,7 @@ public class AssignmentOnePartOne {
         //Answer here
         firstStr = firstStr.replace(" ", "");//remove white space
         secondStr = secondStr.replace(" ", "");//remove white space
+
         if (firstStr.equals(secondStr)) {
             return "Same string";
         } else if (secondStr.contains(firstStr)) {

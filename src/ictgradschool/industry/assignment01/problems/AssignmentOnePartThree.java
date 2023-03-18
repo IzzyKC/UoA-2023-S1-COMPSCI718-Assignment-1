@@ -176,6 +176,7 @@ public class AssignmentOnePartThree {
                 }
             }
         }
+
         if (isEvenArrLength) {
             // median is the average of the middle two values
             median = (values[values.length / 2] + values[(values.length / 2) - 1]) / 2;
@@ -183,6 +184,7 @@ public class AssignmentOnePartThree {
             // median is the middle value
             median = values[(values.length / 2)];
         }
+
         return median;
         //
     }
