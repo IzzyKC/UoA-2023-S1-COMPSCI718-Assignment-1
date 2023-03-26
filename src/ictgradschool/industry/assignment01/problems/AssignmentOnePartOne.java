@@ -137,6 +137,7 @@ public class AssignmentOnePartOne {
      */
     public String isSubstring(String firstStr, String secondStr) {
         //Answer here
+        //ignores spaces
         firstStr = firstStr.replace(" ", "");//remove white space
         secondStr = secondStr.replace(" ", "");//remove white space
 
