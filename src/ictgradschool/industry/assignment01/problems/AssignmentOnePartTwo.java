@@ -171,7 +171,7 @@ public class AssignmentOnePartTwo {
      */
     public String printPrimeNumbers(int num) {
         // Answer
-        //negative given numner, do nothing
+        //given numner is negative, do nothing
         boolean isIntNegative = (num < 0);
         String primeNumberList = "";
         if (!isIntNegative) {
