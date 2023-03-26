@@ -264,6 +264,7 @@ public class AssignmentOnePartThree {
             }
         }
         int[] uniqueNumbers = new int[uniqueNumIndex];
+        //get unique number at position 0,2,4....
         for (int index = 0; index < uniqueNumIndex; index++) {
             uniqueNumbers[index] = Integer.parseInt(uniqueNumStr.substring(index * 2, index * 2 + 1));
         }
